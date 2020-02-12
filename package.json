@@ -9,9 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "v-checkbox": "0.0.1",
-    "v-switch": "0.0.1",
     "vue": "^2.6.11",
+    "vue-js-modal": "^1.3.33",
     "vuetify": "^2.1.0"
   },
   "devDependencies": {
@@ -24,6 +23,7 @@
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-vuetify": "~2.0.4",
+    "vue-router": "^3.1.5",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.3.0"
   },

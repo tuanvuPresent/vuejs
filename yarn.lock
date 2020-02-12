@@ -7916,18 +7916,6 @@ uuid@^3.0.1, uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-v-checkbox@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/v-checkbox/-/v-checkbox-0.0.1.tgz#624edbb6a3179d1def896ee69cfcc525520b769d"
-  integrity sha512-CLr2dwwEz4P27m2U/Pb9iJzBIL/P+eZ9+TMO6g5VlrtF6q7Av0Bq48Lkdn2hfewbTwuRh0vPXI4cVk8SAsh7JA==
-  dependencies:
-    vue "^2.3.2"
-
-v-switch@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/v-switch/-/v-switch-0.0.1.tgz#5cebca026b0598ecadff88c12c866f901f97ab9a"
-  integrity sha1-XOvKAmsFmOyt/4jBLIZvkB+Xq5o=
-
 v8-compile-cache@^2.0.3:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.1.0.tgz#e14de37b31a6d194f5690d67efc4e7f6fc6ab30e"
@@ -7990,6 +7978,11 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
+vue-js-modal@^1.3.33:
+  version "1.3.33"
+  resolved "https://registry.yarnpkg.com/vue-js-modal/-/vue-js-modal-1.3.33.tgz#e9c47ac442e12bae3f73871ed9abac3202ecb289"
+  integrity sha512-AeYn51cG/iSZbRAOnDrmzdv+Q8bBtElB3R0U37eM3NRKkcFsf6CLBw5lip1sSbichdn1ANfzjM+N1gki3GvMqw==
+
 vue-loader@^15.8.3:
   version "15.8.3"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.8.3.tgz#857cb9e30eb5fc25e66db48dce7e4f768602a23c"
@@ -8000,6 +7993,11 @@ vue-loader@^15.8.3:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.5.tgz#ff29b8a1e1306c526b52d4dc0532109f16c41231"
+  integrity sha512-BszkPvhl7I9h334GjckCh7sVFyjTPMMJFJ4Bsrem/Ik+B/9gt5tgrk8k4gGLO4ZpdvciVdg7O41gW4DisQWurg==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
@@ -8022,7 +8020,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.3.2, vue@^2.6.11:
+vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

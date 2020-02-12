@@ -1,14 +1,12 @@
 <template>
-    <DataTableDemo/>
+    <Common/>
 </template>
 
 <script>
-    import DataTableDemo from "./components/DataTableDemo";
+    import Common from "./layout/Common";
 
     export default {
         name: 'App',
-        components: {
-            DataTableDemo,
-        },
+        components: {Common},
     };
 </script>
