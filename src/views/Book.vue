@@ -1,10 +1,15 @@
 <template>
-    <h2>This is Book</h2>
+    <FormDemo/>
 </template>
 
 <script>
+    import FormDemo from "../components/demo/FormDemo";
+
     export default {
-        name: "Book"
+        name: "Book",
+        components: {
+            FormDemo
+        }
     }
 </script>
 

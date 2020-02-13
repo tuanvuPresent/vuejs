@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-navigation-drawer v-model="drawer" app clipped>
+        <v-navigation-drawer v-model="drawer" app dark clipped>
             <MenuDemo/>
         </v-navigation-drawer>
 
@@ -10,7 +10,7 @@
         </v-app-bar>
 
         <v-content>
-            <v-container class="fill-height" fluid>
+            <v-container fluid>
                 <router-view/>
             </v-container>
         </v-content>

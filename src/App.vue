@@ -1,5 +1,7 @@
 <template>
-    <Common/>
+    <v-app>
+        <Common/>
+    </v-app>
 </template>
 
 <script>
