@@ -10,18 +10,14 @@
                 hide-default-footer
         >
             <template v-slot:header>
-                <v-toolbar
-                        dark
-                        color="blue darken-3"
-                        class="mb-1"
-                >
+                <v-toolbar dark color="blue darken-3" class="mb-1">
                     <v-text-field
                             v-model="search"
                             clearable
                             flat
                             solo-inverted
                             hide-details
-                            prepend-inner-icon="search"
+                            prepend-inner-icon="mdi-search-web"
                             label="Search"
                     ></v-text-field>
                     <template v-if="$vuetify.breakpoint.mdAndUp">
@@ -32,14 +28,11 @@
                                 solo-inverted
                                 hide-details
                                 :items="keys"
-                                prepend-inner-icon="search"
+                                prepend-inner-icon="mdi-search-web"
                                 label="Sort by"
                         ></v-select>
                         <v-spacer></v-spacer>
-                        <v-btn-toggle
-                                v-model="sortDesc"
-                                mandatory
-                        >
+                        <v-btn-toggle v-model="sortDesc" mandatory>
                             <v-btn
                                     large
                                     depressed
@@ -73,9 +66,7 @@
                     >
                         <v-card>
                             <v-card-title class="subheading font-weight-bold">{{ item.name }}</v-card-title>
-
                             <v-divider></v-divider>
-
                             <v-list dense>
                                 <v-list-item
                                         v-for="(key, index) in filteredKeys"
@@ -122,10 +113,7 @@
 
                     <v-spacer></v-spacer>
 
-                    <span
-                            class="mr-4
-            grey--text"
-                    >
+                    <span class="mr-4 grey--text">
             Page {{ page }} of {{ numberOfPages }}
           </span>
                     <v-btn

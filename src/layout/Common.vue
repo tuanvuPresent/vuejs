@@ -1,10 +1,10 @@
 <template>
     <v-app>
-        <v-navigation-drawer v-model="drawer" app dark clipped>
+        <v-navigation-drawer v-model="drawer" app clipped dark>
             <MenuDemo/>
         </v-navigation-drawer>
 
-        <v-app-bar app clipped-left color="green">
+        <v-app-bar app clipped-left color="blue">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
             <v-toolbar-title>Application</v-toolbar-title>
         </v-app-bar>
@@ -14,8 +14,8 @@
                 <router-view/>
             </v-container>
         </v-content>
-
-        <v-footer app color="red">
+        <v-divider></v-divider>
+        <v-footer app color="green">
             <span>&copy; 2020</span>
         </v-footer>
     </v-app>
