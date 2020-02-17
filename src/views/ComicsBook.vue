@@ -19,7 +19,7 @@
                             :key="item.id">
                         <v-row gutters v-if="item.id %3 === 0">
                             <v-col v-for="col in [0,1,2]" :key="col">
-                                <v-card
+                                <v-card max-height="290" max-width="290"
                                         @click="click(items[i+col])"
                                         v-if="items[i+col]"
                                 >
@@ -55,7 +55,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
 
     export default {
         name: "ComicBook",
@@ -86,20 +85,6 @@
         },
         methods: {
             click(item) {
-                fetch('https://jsonplaceholder.typicode.com/posts')
-                    .then(response => response.json())
-                    .then(json => {
-                        console.log(json)
-                    });
-                axios.get('http://127.0.0.1:8000/api/v1/master/member/')
-                    .then(response => {
-                        this.posts = response.data
-                        console.log(response.data)
-                        console.log(this.items)
-                    })
-                    .catch(e => {
-                        this.errors.push(e)
-                    })
                 alert(item.title)
             }
         },
