@@ -2,39 +2,38 @@ import VueRouter from "vue-router";
 import Vue from "vue";
 import Home from "../views/Home";
 import User from "../views/User";
-import Book from "../views/Book";
 import EduBook from "../views/EduBook";
-import HelloWorld from "../components/demo/HelloWorld";
-import ButtonDemo from "../components/demo/ButtonDemo";
+import HelloWorld from "../components/Demo/HelloWorld";
+import ButtonDemo from "../components/Demo/ButtonDemo";
 import ComicsBook from "../views/ComicsBook";
-import ButtonSheetDemo from "../components/demo/ButtonSheetDemo";
-import ButtonToggleDemo from "../components/demo/ButtonToggleDemo";
-import CheckboxDemo from "../components/demo/CheckboxDemo";
-import ChipsDemo from "../components/demo/ChipsDemo";
-import ChoiceDemo from "../components/demo/ChoiceDemo";
-import BadgesDemo from "../components/demo/BadgesDemo";
-import DataIteratorDemo from "../components/demo/DataIteratorDemo";
-import DatePicker from "../components/demo/DatePicker";
-import DialogDemo from "../components/demo/DialogDemo";
-import FormDemo from "../components/demo/FormDemo";
-import IconsDemo from "../components/demo/IconsDemo";
-import LayoutDemo from "../components/demo/LayoutDemo";
-import ProgressCircularDemo from "../components/demo/ProgressCircularDemo";
-import ProgressLinearDemo from "../components/demo/ProgressLinearDemo";
-import SliderDemo from "../components/demo/SliderDemo";
-import SnackBarDemo from "../components/demo/SnackBarDemo";
-import ToolBarDemo from "../components/demo/ToolBarDemo";
-import Carousels from "../components/demo/Carousels";
-import Ratting from "../components/demo/Ratting";
-import PageNotFound from "../components/demo/PageNotFound";
-import GridDemo from "../components/demo/GridDemo";
+import ButtonSheetDemo from "../components/Demo/ButtonSheetDemo";
+import ButtonToggleDemo from "../components/Demo/ButtonToggleDemo";
+import CheckboxDemo from "../components/Demo/CheckboxDemo";
+import ChipsDemo from "../components/Demo/ChipsDemo";
+import ChoiceDemo from "../components/Demo/ChoiceDemo";
+import BadgesDemo from "../components/Demo/BadgesDemo";
+import DataIteratorDemo from "../components/Demo/DataIteratorDemo";
+import DatePicker from "../components/Demo/DatePicker";
+import DialogDemo from "../components/Demo/DialogDemo";
+import FormDemo from "../components/Demo/FormDemo";
+import IconsDemo from "../components/Demo/IconsDemo";
+import LayoutDemo from "../components/Demo/LayoutDemo";
+import ProgressCircularDemo from "../components/Demo/ProgressCircularDemo";
+import ProgressLinearDemo from "../components/Demo/ProgressLinearDemo";
+import SliderDemo from "../components/Demo/SliderDemo";
+import SnackBarDemo from "../components/Demo/SnackBarDemo";
+import ToolBarDemo from "../components/Demo/ToolBarDemo";
+import Carousels from "../components/Demo/Carousels";
+import Ratting from "../components/Demo/Ratting";
+import PageNotFound from "../components/Demo/PageNotFound";
+import GridDemo from "../components/Demo/GridDemo";
+import LoginComponent from "../components/Authentication/LoginComponent";
 
 Vue.use(VueRouter);
 const routes = [
     {path: "*", component: PageNotFound},
-    {path: '/', component: Home},
+    {path: '/', component: Home, name: 'home'},
     {path: '/user', component: User},
-    {path: '/book', component: Book},
     {path: '/book/edu', component: EduBook},
     {path: '/book/comic', component: ComicsBook},
     {path: '/example/HelloWord', component: HelloWorld},
@@ -59,9 +58,28 @@ const routes = [
     {path: '/example/Carousels', component: Carousels},
     {path: '/example/Ratting', component: Ratting},
     {path: '/example/Grid', component: GridDemo},
+    {path: '/login', component: LoginComponent, name: 'login'},
 ];
 const router = new VueRouter({
     mode: "history",
     routes
 });
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
+    console.log('token: ' + token)
+    if (to.path !== '/login') {
+        if (token) {
+            next();
+        } else {
+            next('/login');
+        }
+    } else {
+        if (token) {
+            next('/')
+        } else {
+            next()
+        }
+    }
+});
+
 export default router;

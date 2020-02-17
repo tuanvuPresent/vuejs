@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import DataTableDemo from "../components/DataTableDemo";
+    import DataTableDemo from "../components/TableUser/DataTableDemo";
 
     export default {
         name: "User",

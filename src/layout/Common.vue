@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import MenuDemo from "../components/MenuDemo";
+    import MenuDemo from "../components/Menu/MenuDemo";
 
     export default {
         props: {
