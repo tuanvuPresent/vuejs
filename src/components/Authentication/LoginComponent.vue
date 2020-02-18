@@ -31,6 +31,7 @@
         components: {RegisterComponent},
         data() {
             return {
+                token: null,
                 email: '',
                 password: '',
                 emailRules: [
@@ -43,22 +44,31 @@
             }
         },
         methods: {
-            signin() {
-                let token = '';
-                axios.post('http://192.168.0.152:8000/auth/login', {
+            async signin() {
+                // axios.get('http://192.168.0.152:8000/account/')
+                //     .then(function (response) {
+                //         console.log(response);
+                //     })
+                //     .catch(function (error) {
+                //         console.log(error);
+                //     });
+
+                await axios.post('http://192.168.0.152:8000/auth/login/', {
                     username: this.email,
                     password: this.password
                 })
                     .then(function (response) {
-                        token = response.data.token;
-                        console.log(response);
+                        let data = response.data.data;
+                        this.token = data.token;
+                        console.log(data, this.token);
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
-                if (this.email === 'admin@gmail.com' && this.password === 'admin') {
-                    localStorage.setItem('token', token);
-                    router.push('/')
+                console.log(this.token);
+                if (this.token !== null) {
+                    localStorage.setItem('token', this.token);
+                    await router.push('/')
                 }
             },
         }
