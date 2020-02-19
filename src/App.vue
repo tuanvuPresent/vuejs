@@ -1,14 +1,9 @@
 <template>
-    <v-app>
-        <Common/>
-    </v-app>
+  <router-view />
 </template>
 
 <script>
-    import Common from "./layout/Common";
-
-    export default {
-        name: 'App',
-        components: {Common},
-    };
+export default {
+  name: "App"
+};
 </script>
