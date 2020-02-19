@@ -47,14 +47,6 @@ const routes = [
                 component: Home
             },
             {
-                path: "user",
-                component: User
-            },
-            {
-                path: '/',
-                component: Home, name: 'home'
-            },
-            {
                 path: '/user',
                 component: User
             },
