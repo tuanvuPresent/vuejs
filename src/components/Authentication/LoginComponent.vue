@@ -5,13 +5,12 @@
         <v-card-text>
           <v-card-title>Please sign in</v-card-title>
           <v-card-text>
-            <v-text-field :rules="emailRules" v-model="email" label="Name">
+            <v-text-field label="Name" @input="inputUsername($event)">
             </v-text-field>
             <v-text-field
               type="password"
-              :rules="passwordRules"
-              v-model="password"
               label="Password"
+              @input="inputPassword($event)"
             >
             </v-text-field>
           </v-card-text>
@@ -26,56 +25,45 @@
 </template>
 
 <script>
-import router from "../../router/routers";
-import RegisterComponent from "./RegisterComponent";
-import axios from "axios";
+import { createComponent, inject, provide } from "@vue/composition-api";
+import RegisterComponent from "@/components/Authentication/RegisterComponent";
+import AuthKey from "@/store/AuthKey";
+import authStore from "@/store/AuthStore";
+import router from "@/router/routers";
 
-export default {
-  name: "LoginComponent",
-  components: { RegisterComponent },
-  data() {
+export default createComponent({
+  setup() {
+    provide(AuthKey, authStore());
+    const auth = inject(AuthKey);
+    if (!auth) {
+      throw new Error(`${AuthKey} is not provided`);
+    }
+
+    const inputUsername = e => {
+      auth.inputUsername(e);
+    };
+    const inputPassword = e => {
+      auth.inputPassword(e);
+    };
+
+    const signin = async () => {
+      console.log("START");
+      await auth.login();
+      console.log(auth.token);
+      if (auth.token) {
+        router.push("/");
+      }
+    };
+
     return {
-      email: "",
-      password: "",
-      emailRules: [
-        v => !!v || "Mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      ],
-      passwordRules: [v => !!v || "Password is required"]
+      inputUsername,
+      inputPassword,
+      signin
     };
   },
-  methods: {
-    async signin() {
-      let token = null;
-      // axios.get('http://192.168.0.152:8000/account/')
-      //     .then(function (response) {
-      //         console.log(response);
-      //     })
-      //     .catch(function (error) {
-      //         console.log(error);
-      //     });
-      console.log("START");
-      await axios
-        .post("http://192.168.0.152:8000/auth/login/", {
-          username: this.email,
-          password: this.password
-        })
-        .then(function(response) {
-          let data = response.data.data;
-          token = data.token;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-      console.log("END");
-      console.log("token: " + token);
-      if (token !== null) {
-        localStorage.setItem("token", token);
-        await router.push("/");
-      }
-    }
-  }
-};
+
+  components: { RegisterComponent }
+});
 </script>
 
 <style scoped></style>
