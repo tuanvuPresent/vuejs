@@ -5,8 +5,8 @@ import router from "../router/routers";
 export default function authStore() {
   type state = {};
   const state = reactive({
+    url:process.env.VUE_APP_API_LOGIN,
     loading: false,
-    url: "http://192.168.0.152:8000",
     authError: "",
     token: null,
     loginBody: {
@@ -17,8 +17,8 @@ export default function authStore() {
   });
 
   const axiosinstance = axios.create({
-    baseURL: process.env.VUE_APP_API_SERVER
-  });
+    baseURL :process.env.VUE_APP_API_ROOT,
+});
 
   axiosinstance.defaults.timeout = 3500;
   axiosinstance.interceptors.response.use(
@@ -69,12 +69,12 @@ export default function authStore() {
       state.loginBody.password = e;
     },
 
-    async login() {
+    login() {
       console.log("Login");
       state.loading = true;
       const params = state.loginBody;
-      await axiosinstance
-        .post(state.url + "/auth/login/", params)
+      axiosinstance
+        .post(state.url,params)
         .then(response => (state.token = response.data.data.token))
         .then(() => (state.loading = false));
     }

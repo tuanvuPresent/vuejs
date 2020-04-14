@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import { createComponent, inject, provide } from "@vue/composition-api";
-import RegisterComponent from "@/components/Authentication/RegisterComponent";
-import AuthKey from "@/store/AuthKey";
-import authStore from "@/store/AuthStore";
-import router from "@/router/routers";
+  import {createComponent, inject, provide} from "@vue/composition-api";
+  import RegisterComponent from "@/components/Authentication/RegisterComponent";
+  import AuthKey from "@/store/AuthKey";
+  import authStore from "@/store/AuthStore";
+  import router from "@/router/routers";
 
-export default createComponent({
+  export default createComponent({
   setup() {
     provide(AuthKey, authStore());
     const auth = inject(AuthKey);
@@ -47,9 +47,7 @@ export default createComponent({
     };
 
     const signin = async () => {
-      console.log("START");
       await auth.login();
-      console.log(auth.token);
       if (auth.token) {
         router.push("/");
       }
