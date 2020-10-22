@@ -3,3 +3,7 @@
   publish="dist"
   base = "client"
   # The base directory should be the path to the nested Vue project
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
