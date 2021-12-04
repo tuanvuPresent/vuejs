@@ -1,16 +1,15 @@
 <template>
-    <EduBookComponent/>
+  <EduBookComponent />
 </template>
 
 <script>
-    import EduBookComponent from "../components/Book/EduBookComponent";
+import EduBookComponent from "../components/Book/EduBookComponent";
 
-    export default {
-        name: "EduBook",
-        components: {EduBookComponent}
-    }
+export default {
+  name: "EduBook",
+  components: { EduBookComponent },
+};
 </script>
 
 <style scoped>
-
 </style>
