@@ -3,7 +3,8 @@ module.exports = {
         "vuetify"
     ],
     devServer: {
-        disableHostCheck: true
+        disableHostCheck: true,
+        historyApiFallback: true, // Thêm dòng này
     },
     chainWebpack: (config) => {
         config.plugin('html').tap((options) => {
