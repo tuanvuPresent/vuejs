@@ -1,4 +1,4 @@
-import VueRouter from "vue-router";
+import { VueRouter, createWebHistory } from 'vue-router';
 import Vue from "vue";
 
 import Home from "../views/Home.vue";
@@ -165,6 +165,7 @@ const routes = [
   }
 ];
 const router = new VueRouter({
+  history: createWebHistory(), // Use history mode
   mode: "history",
   routes
 });
