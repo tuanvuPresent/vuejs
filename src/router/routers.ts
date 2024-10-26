@@ -166,7 +166,7 @@ const routes = [
 ];
 const router = new VueRouter({
   history: createWebHistory(), // Use history mode
-  mode: "history",
+  // mode: "history",
   routes
 });
 // router.beforeEach((to, from, next) => {
